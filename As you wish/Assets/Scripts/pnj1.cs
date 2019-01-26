@@ -1,24 +1,24 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-public class player : MonoBehaviour {
+public class pnj1 : MonoBehaviour {
 
-    [SerializeField]
+	[SerializeField]
     private float speed;
     private Vector2 direction;
-
-    // Use this for initialization
-    void Start () {
+	
+	// Use this for initialization
+	void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Move();
-    }
+		Move();
+	}
 
-    public void Move()
+	public void Move()
     {
         if (Input.GetKey(KeyCode.UpArrow))
         {
@@ -33,12 +33,6 @@ public class player : MonoBehaviour {
         else if(Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
-        }
-    }
-
-    public void collision()
-    {
-        //trigger , si contact avec mur intérieur, passer au travers
-        
+        }   
     }
 }
