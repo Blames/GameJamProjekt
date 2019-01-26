@@ -33,7 +33,11 @@ public class player : MonoBehaviour {
         else if(Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
-        }
-        
+        }   
+    }
+
+    public void collision()
+    {
+
     }
 }
