@@ -6,38 +6,34 @@ public class player : MonoBehaviour {
 
     [SerializeField]
     private float speed;
-    private Vector2 direction;
+
+	private Animator anim;
+
 
     // Use this for initialization
     void Start () {
-		
+
+		anim = GetComponent<Animator> ();
+	
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Move();
-    }
+		if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw ("Horizontal") < -0.5f) {
+			
+			transform.Translate (new Vector3 (Input.GetAxisRaw ("Horizontal") * speed * Time.deltaTime, 0f, 0f));
+		}
 
-    public void Move()
-    {
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.Translate(Vector2.up * speed * Time.deltaTime);
-        }else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.Translate(Vector2.down * speed * Time.deltaTime);
-        }else if(Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
-        }
-        else if(Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
-        }   
-    }
+		if (Input.GetAxisRaw ("Vertical") > 0.5f || Input.GetAxisRaw ("Vertical") < -0.5f) {
 
-    public void collision()
-    {
+			transform.Translate (new Vector3 (0f, Input.GetAxisRaw ("Vertical") * speed * Time.deltaTime, 0f));
+		}
+
+		anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
+		anim.SetFloat ("MoveY", Input.GetAxisRaw ("Vertical"));
 
     }
+		
+
 }
