@@ -13,10 +13,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Ennemy
+  - Internal_wall
+  - External_wall
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Canvas
+    uniqueID: 2494534117
+    locked: 0
+  - name: External_wall
+    uniqueID: 2941131495
+    locked: 0
+  - name: New Layer
+    uniqueID: 1025993785
     locked: 0

@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class pnj1 : MonoBehaviour {
 
 	[SerializeField]
     private float speed;
     private Vector2 direction;
-	
+
+	[SerializeField]
+    private stat health;
+
+	private void Awake()
+    {
+        health.Initialize();
+    }
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,6 +25,7 @@ public class pnj1 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Move();
+		healthBar();
 	}
 
 	public void Move()
@@ -35,4 +45,18 @@ public class pnj1 : MonoBehaviour {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
         }   
     }
+
+	public void healthBar()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            health.CurrentVal -= 10;
+
+        }else if (Input.GetKeyDown(KeyCode.E))
+        {
+            health.CurrentVal += 10;
+        }
+    }
+
+	
 }

@@ -6,17 +6,18 @@ public class player : MonoBehaviour {
 
     [SerializeField]
     private float speed;
+
     private Vector2 direction;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
+
+    
 	
 	// Update is called once per frame
 	void Update () {
         Move();
     }
+
+    
 
     public void Move()
     {
@@ -36,9 +37,5 @@ public class player : MonoBehaviour {
         }
     }
 
-    public void collision()
-    {
-        //trigger , si contact avec mur intérieur, passer au travers
-        
-    }
+    
 }
